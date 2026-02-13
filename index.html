@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>رسالة حب</title>
+<style>
+body{
+background: linear-gradient(to right,#ff9a9e,#fad0c4);
+font-family: Arial;
+text-align:center;
+padding-top:100px;
+color:#fff;
+}
+.box{
+background:white;
+color:#e91e63;
+padding:30px;
+border-radius:20px;
+width:80%;
+margin:auto;
+display:none;
+font-size:18px;
+line-height:1.8;
+}
+input{
+padding:10px;
+border-radius:10px;
+border:none;
+margin-top:20px;
+}
+button{
+padding:10px 20px;
+border:none;
+border-radius:10px;
+background:#e91e63;
+color:white;
+margin-left:10px;
+}
+</style>
+</head>
+<body>
 
+<h2>اكتب كلمة السر لفتح الرسالة 💌</h2>
+<input type="password" id="pass" placeholder="كلمة السر">
+<button onclick="check()">فتح</button>
+
+<div class="box" id="loveMsg">
+يا أجمل شخص في حياتي ❤️  
+
+من يوم ما دخلت حياتي وأنا بقيت بشوف الدنيا بلون تاني…  
+وجودك أمان، وضحكتك حياة، وكلامك راحة لقلبي.  
+
+أنا بحبك حب كبير أوي، حب صادق من القلب،  
+حب مليان اهتمام وغيرة حلوة واحتواء.  
+
+كل لحظة معاك نعمة بشكر ربنا عليها،  
+وكل يوم بدعي إنك تفضل جنبي دايمًا.  
+
+إنت مش بس حبيبي…  
+إنت روحي وصاحبي وأماني.  
+
+بحبك قد الدنيا كلها وأكتر 💖
+</div>
+
+<script>
+function check(){
+var p = document.getElementById("pass").value;
+if(p === "love"){
+document.getElementById("loveMsg").style.display="block";
+}else{
+alert("كلمة السر غلط 😢");
+}
+}
+</script>
+
+</body>
+</html
