@@ -79,11 +79,12 @@ function check(){
 var p = document.getElementById("pass").value;
 if(p === "love"){
 document.getElementById("loveMsg").style.display="block";
+document.getElementById("bgMusic").play();
 }else{
 alert("كلمة السر غلط 😢");
 }
 }
 </script>
-
+<audio id="bgMusic" src="mp3(3).MP3" preload="auto"></audio>
 </body>
 </html
