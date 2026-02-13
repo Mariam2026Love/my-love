@@ -45,6 +45,11 @@ margin-left:10px;
 <button onclick="check()">فتح</button>
 
 <div class="box" id="loveMsg"> 
+  <p style="font-weight:bold; margin-bottom:10px;">
+  📅 16 / 7 / 2024
+</p>
+
+<p id="counter" style="margin-bottom:20px;"></p>
 من أول يوم دخلت فيه حياتي وأنا حسيت إن الدنيا بقت أهدى وأجمل وأحنّ.  
 وجودك جمبي مش بس بيخليني مبسوطة… ده بيخليني مطمنة، قوية، وحاسة إن عندي سند حقيقي في الدنيا.  
 
@@ -73,7 +78,14 @@ margin-left:10px;
 بحبككككك ي لييييلووووو ♥♥♥♥♥♥♥♥♥♥♥♥♥♥🥺🫂.
   
 </div>
+var startDate = new Date("2024-07-16");
+var today = new Date();
 
+var diffTime = today - startDate;
+var diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+document.getElementById("counter").innerHTML =
+"💖 عدّى " + diffDays + " يوم";
 <script>
 function check(){
 var p = document.getElementById("pass").value;
