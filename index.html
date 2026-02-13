@@ -2,163 +2,154 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>Merooo ♥ lelooo 💗</title>
+<title>💗 Merooo & Lelooo 💗</title>
 
 <style>
 body{
-margin:0;
-font-family: Arial, sans-serif;
-background: linear-gradient(135deg,#ffb6d5,#ff4da6);
-text-align:center;
-padding:80px 20px;
-color:#fff;
+  margin:0;
+  min-height:100vh;
+  background: linear-gradient(180deg,#ff7eb3,#ffd1e8);
+  font-family: Arial, sans-serif;
+  direction: rtl;
+  text-align:center;
+  overflow-x:hidden;
 }
 
-/* Welcome */
-#welcome{
-font-size:36px;
-font-weight:bold;
-margin-bottom:25px;
-animation: fadeWelcome 3s forwards;
+.container{
+  max-width:700px;
+  margin:40px auto;
+  background:white;
+  border-radius:30px;
+  padding:30px;
+  box-shadow:0 15px 30px rgba(0,0,0,0.25);
+  position:relative;
+  z-index:2;
 }
 
-@keyframes fadeWelcome{
-0%{opacity:0;}
-30%{opacity:1;}
-80%{opacity:1;}
-100%{opacity:0; display:none;}
-}
+h1{color:#e91e63;}
 
 input{
-padding:12px;
-border-radius:12px;
-border:none;
-width:220px;
-font-size:16px;
+  padding:12px;
+  width:70%;
+  border:none;
+  border-radius:25px;
+  background:#ffe6f0;
+  text-align:center;
 }
 
 button{
-padding:12px 25px;
-border:none;
-border-radius:12px;
-background:#ff4da6;
-color:white;
-font-size:16px;
-cursor:pointer;
-margin-left:8px;
+  padding:12px 22px;
+  margin:8px;
+  border:none;
+  border-radius:25px;
+  background:#ff4f9a;
+  color:white;
+  cursor:pointer;
 }
 
-.box{
-background:#fff;
-color:#d63384;
-padding:30px;
-border-radius:22px;
-width:90%;
-max-width:520px;
-margin:40px auto;
-display:none;
-font-size:18px;
-line-height:1.9;
-box-shadow:0 15px 30px rgba(0,0,0,.25);
+.menu button{background:#ff5fa2;}
+
+.section{
+  display:none;
+  background:#fff0f7;
+  margin-top:20px;
+  padding:20px;
+  border-radius:20px;
+  line-height:2;
+  color:#c2185b;
 }
 
-/* أسماء */
 .names{
-font-size:36px;
-font-weight:bold;
-margin-bottom:10px;
+  font-size:26px;
+  font-weight:bold;
+  margin:10px 0;
 }
 
+/* قلوب */
 .heart{
-color:#ff4da6;
-display:inline-block;
-animation: beat 1s infinite;
+  position:fixed;
+  bottom:-20px;
+  animation:float 6s linear infinite;
+  opacity:0.8;
+}
+@keyframes float{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(-120vh);}
 }
 
-@keyframes beat{
-0%{transform: scale(1);}
-50%{transform: scale(1.3);}
-100%{transform: scale(1);}
+/* نجوم */
+.star{
+  position:fixed;
+  width:3px;
+  height:3px;
+  background:white;
+  border-radius:50%;
+  opacity:0.8;
+  animation:twinkle 3s infinite;
 }
-
-.fade{
-opacity:0;
-animation: fadeIn 2s forwards;
-}
-
-.fade2{
-opacity:0;
-animation: fadeIn 2s forwards;
-animation-delay:1.5s;
-}
-
-@keyframes fadeIn{
-to{opacity:1;}
+@keyframes twinkle{
+  0%{opacity:.2;}
+  50%{opacity:1;}
+  100%{opacity:.2;}
 }
 </style>
 </head>
 
 <body>
 
-<h2>💌 اكتب كلمة السر لفتح الرسالة</h2>
+<div class="container">
+<h1>🔐 رسالة حب سرية</h1>
+
 <input type="password" id="pass" placeholder="كلمة السر">
-<button onclick="check()">دخول</button>
+<br><br>
+<button onclick="login()">دخول</button>
 
-<div class="box" id="loveMsg">
+<div id="content" style="display:none">
 
-<div id="welcome">💗 Welcome lelooo 💗</div>
-
-<div class="names">
-<span class="fade">Merooo</span>
-<span class="heart"> ♥ </span>
-<span class="fade2">lelooo</span>
-</div>
-
-<p style="font-weight:bold;">📅 16 / 7 / 2024</p>
+<div class="names">Merooo ❤️ Lelooo</div>
 <p id="counter"></p>
 
-<p>
-من أول يوم دخلت فيه حياتي وأنا حسيت إن الدنيا بقت أهدى وأجمل وأحنّ.<br>
-وجودك جمبي مش بس بيخليني مبسوطة… ده بيخليني مطمنة، قوية، وحاسة إن عندي سند حقيقي في الدنيا.
-</p>
+<div class="menu">
+<button onclick="openS('s1')">💌 رسالة</button>
+<button onclick="openS('s2')">🤍 وعد</button>
+<button onclick="openS('s3')">💗 إحساس</button>
+<button onclick="openS('s4')">🌸 كلام</button>
+<button onclick="openS('s5')">🎁 مفاجأة</button>
+<button onclick="boom()">💥 حب</button>
+</div>
 
-<p>
-إنت مش بس حبيبي… إنت صاحبي، وأماني، وضحكتي، وكل تفاصيل يومي الحلوة.<br>
-كل مرة بتكلمني فيها بحس إن قلبي بيبتسم قبل وشي، وكل مرة بتقولي كلمة حلوة بحس إن الدنيا كلها واقفة تسمعها معايا.
-</p>
+<div id="s1" class="section">
+الكلام ده مش للعالم كله…  
+ده ليك إنت وبس،  
+لأنك أحلى حاجة حصلتلي في حياتي 💕
+</div>
 
-<p>
-أنا بحبك حب كبير أوي، حب صادق من قلبي،<br>
-حب مفيهوش شروط ولا حدود،<br>
-حب بيكبر كل يوم أكتر من اليوم اللي قبله.
-</p>
+<div id="s2" class="section">
+وعد مني ليك 🤍  
+أفضل جنبك مهما الدنيا لفت  
+وأختارك كل يوم من جديد.
+</div>
 
-<p>
-بحب غيرتك عليا، واهتمامك بيا، وطريقتك وانت بتسأل عليا حتى في أبسط الحاجات.<br>
-بحب إنك دايمًا عايزني أكون أحسن نسخة من نفسي،<br>
-وبحب إنك بتحتويني حتى وأنا زعلانة أو متضايقة.
-</p>
+<div id="s3" class="section">
+إنت مش بس حبيبي…  
+إنت الأمان والضحكة  
+وكل اللي نفسي فيه 💗
+</div>
 
-<p>
-وجودك في حياتي نعمة بحمد ربنا عليها كل يوم،<br>
-وأتمنى أفضل جنبك دايمًا، نعدّي كل حاجة سوا،<br>
-نفرح سوا، نزعل سوا، ونحقق أحلامنا سوا.
-</p>
+<div id="s4" class="section">
+من أول يوم عرفتك  
+والدنيا بقت أهدى  
+بحبك حب صادق يكبر كل يوم 🌸
+</div>
 
-<p>
-أنا اخترتك من كل الدنيا،<br>
-واخترتك بإرادتي وقلبي وعقلي،<br>
-ولو رجع بيا الزمن ألف مرة… هختارك كل مرة.
-</p>
+<div id="s5" class="section">
+لو رجع بيا الزمن ألف مرة  
+هختارك كل مرة  
+بنفس القلب 💖  
+كل فلانتاين واحنا سوا 🫂
+</div>
 
-<p>
-بحبك النهارده،<br>
-وبحبك بكرة،<br>
-وبحبك طول العمر يا أجمل حاجة حصلتلي 💗<br>
-كل فلانتاين واحنا مع بعض يا روح قلبي<br>
-بحبككككك يا lelooo ♥♥♥🥺🫂
-</p>
-
+</div>
 </div>
 
 <audio id="music" loop>
@@ -166,25 +157,58 @@ to{opacity:1;}
 </audio>
 
 <script>
-function check(){
-var p = document.getElementById("pass").value;
-
-if(p === "love"){
-document.getElementById("loveMsg").style.display = "block";
-
-/* عدّاد الأيام */
-var startDate = new Date("2024-07-16");
-var today = new Date();
-var diffTime = today - startDate;
-var diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-document.getElementById("counter").innerHTML =
-"💗 عدّى على حبنا " + diffDays + " يوم";
-
-/* موسيقى */
-document.getElementById("music").play();
-}else{
-alert("كلمة السر غلط 🥺");
+function login(){
+ if(pass.value==="love"){
+  content.style.display="block";
+  music.play();
+  hearts();
+  stars();
+  counter();
+ }else alert("كلمة السر غلط 💔");
 }
+
+function openS(id){
+ document.querySelectorAll('.section').forEach(s=>s.style.display="none");
+ document.getElementById(id).style.display="block";
+}
+
+function hearts(){
+ setInterval(()=>{
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💗";
+  h.style.left=Math.random()*100+"%";
+  h.style.fontSize=(15+Math.random()*25)+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+ },300);
+}
+
+function stars(){
+ for(let i=0;i<60;i++){
+  let s=document.createElement("div");
+  s.className="star";
+  s.style.top=Math.random()*100+"vh";
+  s.style.left=Math.random()*100+"vw";
+  document.body.appendChild(s);
+ }
+}
+
+function boom(){
+ for(let i=0;i<30;i++){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💖";
+  h.style.left=Math.random()*100+"%";
+  document.body.appendChild(h);
+ }
+}
+
+function counter(){
+ let start=new Date("2024-02-14");
+ let now=new Date();
+ let d=Math.floor((now-start)/(1000*60*60*24));
+ counter.innerHTML="عدّى على حبنا 💕 "+d+" يوم";
 }
 </script>
 
