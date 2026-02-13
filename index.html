@@ -76,22 +76,13 @@ margin-left:10px;
 وبحبك بكرة،  
 وبحبك طول العمر يا أجمل حاجة حصلتلي كل فلانتاين واحنا مع بعض ي روحقلبي 
 بحبككككك ي لييييلووووو ♥♥♥♥♥♥♥♥♥♥♥♥♥♥🥺🫂.
-  
 </div>
-var startDate = new Date("2024-07-16");
-var today = new Date();
 
-var diffTime = today - startDate;
-var diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-
-document.getElementById("counter").innerHTML =
-"💖 عدّى " + diffDays + " يوم";
 <script>
 function check(){
   var p = document.getElementById("pass").value;
   if(p === "love"){
-    document.getElementById("loveMsg").style.display="block";
-    document.getElementById("bgMusic").play();
+    document.getElementById("loveMsg").style.display = "block";
 
     var startDate = new Date("2024-07-16");
     var today = new Date();
@@ -100,13 +91,17 @@ function check(){
 
     document.getElementById("counter").innerHTML =
     "💖 عدّى " + diffDays + " يوم";
+
+    document.getElementById("bgMusic").play();
   }else{
     alert("كلمة السر غلط 😢");
   }
 }
 </script>
+
 <audio id="bgMusic" preload="auto">
   <source src="song.mp3" type="audio/mpeg">
 </audio>
+
 </body>
-</html
+</html>
