@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>رسالة حب 💗</title>
+<title>Merooo ♥ lelooo 💗</title>
 
 <style>
 body{
@@ -14,18 +14,19 @@ padding:80px 20px;
 color:#fff;
 }
 
-.box{
-background:#fff;
-color:#d63384;
-padding:30px;
-border-radius:22px;
-width:90%;
-max-width:500px;
-margin:auto;
-display:none;
-font-size:18px;
-line-height:1.9;
-box-shadow:0 15px 30px rgba(0,0,0,.25);
+/* Welcome */
+#welcome{
+font-size:36px;
+font-weight:bold;
+margin-bottom:25px;
+animation: fadeWelcome 3s forwards;
+}
+
+@keyframes fadeWelcome{
+0%{opacity:0;}
+30%{opacity:1;}
+80%{opacity:1;}
+100%{opacity:0; display:none;}
 }
 
 input{
@@ -47,8 +48,52 @@ cursor:pointer;
 margin-left:8px;
 }
 
-h2{
-margin-bottom:20px;
+.box{
+background:#fff;
+color:#d63384;
+padding:30px;
+border-radius:22px;
+width:90%;
+max-width:520px;
+margin:40px auto;
+display:none;
+font-size:18px;
+line-height:1.9;
+box-shadow:0 15px 30px rgba(0,0,0,.25);
+}
+
+/* أسماء */
+.names{
+font-size:36px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.heart{
+color:#ff4da6;
+display:inline-block;
+animation: beat 1s infinite;
+}
+
+@keyframes beat{
+0%{transform: scale(1);}
+50%{transform: scale(1.3);}
+100%{transform: scale(1);}
+}
+
+.fade{
+opacity:0;
+animation: fadeIn 2s forwards;
+}
+
+.fade2{
+opacity:0;
+animation: fadeIn 2s forwards;
+animation-delay:1.5s;
+}
+
+@keyframes fadeIn{
+to{opacity:1;}
 }
 </style>
 </head>
@@ -60,6 +105,14 @@ margin-bottom:20px;
 <button onclick="check()">دخول</button>
 
 <div class="box" id="loveMsg">
+
+<div id="welcome">💗 Welcome lelooo 💗</div>
+
+<div class="names">
+<span class="fade">Merooo</span>
+<span class="heart"> ♥ </span>
+<span class="fade2">lelooo</span>
+</div>
 
 <p style="font-weight:bold;">📅 16 / 7 / 2024</p>
 <p id="counter"></p>
@@ -103,13 +156,13 @@ margin-bottom:20px;
 وبحبك بكرة،<br>
 وبحبك طول العمر يا أجمل حاجة حصلتلي 💗<br>
 كل فلانتاين واحنا مع بعض يا روح قلبي<br>
-بحبككككك يا لييييلووووو ♥♥♥♥♥🥺🫂
+بحبككككك يا lelooo ♥♥♥🥺🫂
 </p>
 
 </div>
 
-<audio id="music">
-<source src="song.mp3" type="audio/mpeg">
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -119,14 +172,15 @@ var p = document.getElementById("pass").value;
 if(p === "love"){
 document.getElementById("loveMsg").style.display = "block";
 
+/* عدّاد الأيام */
 var startDate = new Date("2024-07-16");
 var today = new Date();
 var diffTime = today - startDate;
 var diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-
 document.getElementById("counter").innerHTML =
 "💗 عدّى على حبنا " + diffDays + " يوم";
 
+/* موسيقى */
 document.getElementById("music").play();
 }else{
 alert("كلمة السر غلط 🥺");
