@@ -8,29 +8,43 @@
 <style>
 body{
 margin:0;
-font-family: 'Cairo', sans-serif;
-background: linear-gradient(135deg,#ff9ecf,#ff6fa5);
-overflow-x:hidden;
+font-family:'Cairo',sans-serif;
+background:linear-gradient(135deg,#ff9ecf,#ff6fa5);
 text-align:center;
-color:#fff;
+overflow-x:hidden;
+color:white;
 }
 
-.container{
-margin-top:60px;
+.hidden{display:none}
+
+.card{
+background:white;
+width:90%;
+max-width:350px;
+margin:80px auto;
+padding:25px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+color:#ff4081;
 }
 
-h1{
-font-size:28px;
+input{
+width:90%;
+padding:12px;
+border-radius:20px;
+border:1px solid #ddd;
+margin:15px 0;
+text-align:center;
 }
 
 button{
 background:#ff4081;
 border:none;
-padding:12px 20px;
-margin:8px;
+padding:10px 20px;
 border-radius:30px;
 color:white;
-font-size:16px;
+font-size:15px;
+margin:6px;
 cursor:pointer;
 transition:0.3s;
 }
@@ -41,80 +55,112 @@ transform:scale(1.1);
 }
 
 .section{
-display:none;
-margin-top:30px;
 background:white;
 color:#333;
+width:90%;
+max-width:500px;
+margin:15px auto;
 padding:20px;
-border-radius:20px;
-width:85%;
-margin-left:auto;
-margin-right:auto;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
+border-radius:25px;
+display:none;
+animation:fade 0.5s ease-in-out;
 }
 
-.hearts{
+@keyframes fade{
+from{opacity:0;transform:scale(0.9)}
+to{opacity:1;transform:scale(1)}
+}
+
+.hearts span{
 position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-pointer-events:none;
-overflow:hidden;
-}
-
-.heart{
-position:absolute;
 color:#ff2e86;
 animation:float 6s linear infinite;
 }
 
 @keyframes float{
-0%{transform:translateY(100vh) scale(0.5);}
-100%{transform:translateY(-10vh) scale(1.2);}
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-10vh)}
+}
+
+.big-title{
+font-size:28px;
+margin-top:30px;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-<h1>Merooo ❤️ Lelooo</h1>
+<!-- موسيقى -->
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
 
-<button onclick="showSection('s1')">💌 رسالة</button>
-<button onclick="showSection('s2')">🤍 وعد</button>
-<button onclick="showSection('s3')">💗 إحساس</button>
-<button onclick="showSection('s4')">🎁 مفاجأة</button>
-<button onclick="showSection('s5')">✨ كلام زيادة</button>
+<!-- صفحة الدخول -->
+<div id="login" class="card">
+<h2>🔐 رسالة حب سرية</h2>
+<input type="password" id="pass" placeholder="اكتب الباسورد">
+<br>
+<button onclick="login()">دخول</button>
+</div>
+
+<!-- صفحة الترحيب -->
+<div id="welcome" class="hidden">
+<h1 class="big-title">Welcome Lelooo 💕</h1>
+<button onclick="enterSite()">اضغطي هنا ✨</button>
+</div>
+
+<!-- الصفحة الرئيسية -->
+<div id="home" class="hidden">
+
+<h2>Merooo ❤️ Lelooo</h2>
+
+<button onclick="show('s1')">💌 رسالة</button>
+<button onclick="show('s2')">🤍 وعد</button>
+<button onclick="show('s3')">💗 إحساس</button>
+<button onclick="show('s4')">🎁 مفاجأة</button>
+<button onclick="show('s5')">✨ كلام زيادة</button>
+<button onclick="show('s6')">💞 أكتر وأكتر</button>
 
 <div id="s1" class="section">
-الكلام ده مش للعالم كله… <br>
-ده ليك انت وبس، <br>
+الكلام ده مش للعالم كله…<br>
+ده ليك انت وبس،<br>
 لأنك أحلى حاجة حصلتلي في حياتي 💕
 </div>
 
 <div id="s2" class="section">
-وعد مني ليك: <br>
-أفضل جنبك مهما الدنيا لفت، <br>
+وعد مني ليك:<br>
+أفضل جنبك مهما الدنيا لفت،<br>
 وأحبك أكتر كل يوم عن اللي قبله 🤍
 </div>
 
 <div id="s3" class="section">
-إنت مش بس حبيبي… <br>
+إنت مش بس حبيبي…<br>
 إنت الأمان، والضحكة، وكل اللي نفسي فيه 💗
 </div>
 
 <div id="s4" class="section">
-مفاجأة بسيطة ليك 😌✨ <br><br>
-أنا بحبك قد السما وأكتر، <br>
-ولو الزمن رجع بيا مليون مرة، <br>
-هختارك انت برضه كل مرة ❤️
+مفاجأة بسيطة 😌✨<br><br>
+لو رجع بيا الزمن مليون مرة،<br>
+هختارك انت كل مرة ❤️
 </div>
 
 <div id="s5" class="section">
-كل لحظة معاك حكاية، <br>
-وكل ضحكة منك بتخليني أعيش ألف سنة 💞 <br>
-وجودك في حياتي نعمة بشكر ربنا عليها كل يوم.
+كل لحظة معاك حكاية،<br>
+وكل ضحكة منك بتخليني أعيش ألف سنة 💞
+</div>
+
+<div id="s6" class="section">
+أنا بحبك حب ملوش حدود،<br>
+حب يكبر كل يوم،<br>
+حب يخلي قلبي يدق باسمك وبس 💓
 </div>
 
 </div>
@@ -123,28 +169,34 @@ animation:float 6s linear infinite;
 
 <script>
 
-function showSection(id){
-let sections = document.querySelectorAll('.section');
-sections.forEach(sec => sec.style.display = "none");
-document.getElementById(id).style.display = "block";
+function login(){
+let p=document.getElementById("pass").value;
+if(p==="love"){
+document.getElementById("login").style.display="none";
+document.getElementById("welcome").style.display="block";
+}else{
+alert("الباسورد غلط 💔");
+}
 }
 
-// قلوب طايرة
-function createHeart(){
-const heart = document.createElement("div");
-heart.classList.add("heart");
-heart.innerHTML="❤";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*20+10)+"px";
-heart.style.animationDuration=(Math.random()*3+3)+"s";
-document.querySelector(".hearts").appendChild(heart);
-
-setTimeout(()=>{
-heart.remove();
-},6000);
+function enterSite(){
+document.getElementById("welcome").style.display="none";
+document.getElementById("home").style.display="block";
 }
 
-setInterval(createHeart,500);
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.style.display="none");
+document.getElementById(id).style.display="block";
+}
+
+setInterval(()=>{
+let h=document.createElement("span");
+h.innerHTML="❤";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(Math.random()*20+10)+"px";
+document.querySelector(".hearts").appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},400);
 
 </script>
 
