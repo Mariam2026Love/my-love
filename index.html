@@ -88,13 +88,21 @@ document.getElementById("counter").innerHTML =
 "💖 عدّى " + diffDays + " يوم";
 <script>
 function check(){
-var p = document.getElementById("pass").value;
-if(p === "love"){
-document.getElementById("loveMsg").style.display="block";
-document.getElementById("bgMusic").play();
-}else{
-alert("كلمة السر غلط 😢");
-}
+  var p = document.getElementById("pass").value;
+  if(p === "love"){
+    document.getElementById("loveMsg").style.display="block";
+    document.getElementById("bgMusic").play();
+
+    var startDate = new Date("2024-07-16");
+    var today = new Date();
+    var diffTime = today - startDate;
+    var diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    document.getElementById("counter").innerHTML =
+    "💖 عدّى " + diffDays + " يوم";
+  }else{
+    alert("كلمة السر غلط 😢");
+  }
 }
 </script>
 <audio id="bgMusic" preload="auto">
